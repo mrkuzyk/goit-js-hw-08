@@ -11,7 +11,7 @@ const onPlay = function (data) {
     // console.log('videoplayer-current-time', dataSecond);
 };
 
-player.on('timeupdate', throttle(onPlay), 2000); //? до бібліотечної функції добавили "тротл", щоб раз в секунду слідкувало за часом на відео 
+player.on('timeupdate', throttle(onPlay, 1000)); //? до бібліотечної функції добавили "тротл", щоб раз в секунду слідкувало за часом на відео 
 
 //? функція готова з бібліотеки (за виключенням вставки локалСтор....)
 player.setCurrentTime(localStorage.getItem('videoplayer-current-time')).then(function(seconds) {
