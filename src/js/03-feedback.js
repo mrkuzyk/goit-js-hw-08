@@ -10,15 +10,22 @@ let formData = {}; //? створюю пустий обєкт, щоб потім
 
 insertForm();
 
-function onListenForm(e) {
-    formData.email = form.elements.email.value; //? зчитую значення в інпуті
-    formData.message = form.elements.message.value; //? зчитую значення в текстареа
+function writeData() {
+    //? функція для зчитування введених даних
+    formData.email = form.elements.email.value; //? в інпуті
+    formData.message = form.elements.message.value; //?  в текстареа
     
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData)); //? записую дані в память, строкою
+}
+
+function onListenForm(e) {
+    writeData()
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData)); //? записую введені дані в память, строкою
 }
 
 function onPressButton (e) {
     e.preventDefault();
+
+    writeData()
 
     console.log(formData); //? виводить введене після відправки
     e.currentTarget.reset(); //? очищує поля після відправки
