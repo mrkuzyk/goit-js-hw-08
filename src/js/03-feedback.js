@@ -19,7 +19,9 @@ function writeData() {
 
 function onListenForm(e) {
     writeData()
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData)); //? записую введені дані в память, строкою
+
+    //? записую введені дані в память, строкою
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
 function onPressButton (e) {
